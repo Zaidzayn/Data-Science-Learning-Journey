@@ -35,3 +35,30 @@ I'll be moving forward with:
 - Data Visualization  
 - Machine Learning Algorithms  
 - Projects
+
+# 📊 NumPy and Pandas Practice
+
+Welcome to my repository for practicing and mastering **NumPy** and **Pandas** — the foundational libraries for data analysis and scientific computing in Python.
+
+---
+
+## 📌 Contents
+
+- 🧮 NumPy Basics
+- 🐼 Pandas Fundamentals
+- 📊 Data Cleaning & Analysis
+- 📈 Aggregation & Grouping
+- 🔄 Data Merging, Joining, Concatenation
+- 📉 Time Series & Visualization (Optional)
+
+---
+
+## 🚀 Getting Started
+
+### ✅ Prerequisites
+
+Ensure Python 3.7+ is installed. Use `pip` to install required packages:
+
+```bash
+pip install numpy pandas
+
