@@ -61,4 +61,34 @@ Ensure Python 3.7+ is installed. Use `pip` to install required packages:
 
 ```bash
 pip install numpy pandas
+# 🐼 Data Manipulation using Pandas
+
+This repository contains hands-on practice and examples of **data manipulation techniques using Pandas**, a powerful Python library for data analysis. The focus is on real-world tasks like cleaning, transforming, and analyzing structured data effectively.
+
+---
+
+## 📌 Key Topics Covered
+
+- 🔹 Series & DataFrames
+- 🔹 Reading and Writing Data (CSV, Excel, JSON)
+- 🔹 Indexing, Selecting, and Filtering
+- 🔹 Handling Missing Data
+- 🔹 Data Transformation
+- 🔹 Merging, Joining, and Concatenating
+- 🔹 GroupBy and Aggregation
+- 🔹 Sorting and Ranking
+- 🔹 Pivot Tables & Crosstabs
+- 🔹 Working with Dates and Time Series
+
+---
+
+## 🚀 Getting Started
+
+### ✅ Prerequisites
+
+Ensure you have Python 3.7+ installed and install Pandas:
+
+```bash
+pip install pandas
+
 
