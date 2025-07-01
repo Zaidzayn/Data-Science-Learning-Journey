@@ -90,5 +90,36 @@ Ensure you have Python 3.7+ installed and install Pandas:
 
 ```bash
 pip install pandas
+# 🗄️ SQLite Database Project
+
+This project uses an SQLite database file to store and manage data locally without the need for a dedicated database server.
+
+## 📁 Project Contents
+
+- `your_file.db` – The main SQLite database file.
+- `main.py` or `app.py` – Script to interact with the database (insert, query, update, delete).
+- `README.md` – Project documentation.
+
+## 🐍 How to Use
+
+### 1. Prerequisites
+
+Ensure Python is installed. SQLite comes bundled with Python as part of the `sqlite3` module.
+
+### 2. Interact with the Database
+
+You can use a script like this to access the database:
+
+```python
+import sqlite3
+
+conn = sqlite3.connect('your_file.db')
+cursor = conn.cursor()
+
+cursor.execute("SELECT name FROM sqlite_master WHERE type='table';")
+print(cursor.fetchall())
+
+conn.close()
+
 
 
