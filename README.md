@@ -121,5 +121,69 @@ print(cursor.fetchall())
 
 conn.close()
 
+🚦 Understanding Python GIL with a Real-World Analogy
+🧠 What is GIL (Global Interpreter Lock)?
+The Global Interpreter Lock (GIL) is a mutex used by CPython (the standard Python implementation) to ensure that only one thread executes Python bytecode at a time, even on multi-core processors.
+
+🛣️ GIL = Single-Lane Bridge Analogy
+Imagine you're managing delivery trucks (threads) trying to cross a single-lane bridge (the GIL). No matter how many trucks (threads) you have or how many drivers (CPU cores) are available, only one truck can cross at a time.
+
+arduino
+Copy
+Edit
+🚚 Truck 1 → |==== Bridge ====| → ✅
+🚚 Truck 2 → [waiting]
+🚚 Truck 3 → [waiting]
+Threading in Python (with GIL) = All trucks wait their turn.
+
+CPU cores are mostly idle, waiting for their truck's turn to cross.
+
+🔁 When is Threading Still Useful?
+Let’s say trucks are just carrying paperwork (I/O-bound tasks like file I/O, API requests):
+
+While one truck is at a toll booth (waiting for data), another can jump on the bridge.
+
+✅ Threading is good here because threads spend more time waiting than computing.
+
+🧱 When Threading Fails: Heavy Lifting (CPU-Bound)
+Now imagine the trucks are loaded with bricks (CPU-heavy tasks like math, image processing).
+
+Each truck takes time and effort to cross.
+
+🚫 Only one CPU core is used effectively due to the GIL.
+
+Threading doesn’t speed things up — it just adds overhead.
+
+✅ Solution: Multiprocessing = Multiple Bridges!
+Instead of one lane, what if you build multiple bridges?
+
+That's what multiprocessing does — it creates separate processes, each with its own Python interpreter and memory space. Now each truck can cross its own bridge at the same time using different CPU cores.
+
+arduino
+Copy
+Edit
+🚚 Truck 1 → |==== Bridge 1 ====| → ✅ (Core 1)
+🚚 Truck 2 → |==== Bridge 2 ====| → ✅ (Core 2)
+🚚 Truck 3 → |==== Bridge 3 ====| → ✅ (Core 3)
+📌 Summary Table
+Scenario	Use Threading	Use Multiprocessing
+I/O-bound tasks	✅ Yes	✅ Optional
+CPU-bound tasks	❌ No	✅ Yes
+Shared memory	✅ Easy	❌ Harder (requires Queue/Manager)
+True parallelism	❌ No (GIL)	✅ Yes
+
+🔧 That’s Why This Project Uses multiprocessing
+In this project, we rely on multiprocessing for tasks like:
+
+Parallel data processing
+
+Heavy computation
+
+Image transformations
+
+Model training
+
+This ensures the app runs faster by utilizing all available CPU cores, bypassing the GIL limitation.
+
 
 
